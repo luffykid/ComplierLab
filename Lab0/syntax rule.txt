@@ -1,0 +1,29 @@
+描述：该语法用于识别任意长度的由字母组成的字符串
+G=(V, T, P, S)
+V = {S, word, letter, a...z, A...Z}
+T = {a...z, A...Z}
+P = {
+    word ::= word letter | letter | $
+    letter ::= a|b|c|...|z|A|B|C|...|Z
+}
+S = S
+
+V
+V
+V
+消除左递归：
+P' = {
+    word' ::= letter word | $
+    word  ::= letter word
+    letter ::= a|b|c|...|z|A|B|C|...|Z
+}
+
+first(letter) = {a..z, A..Z}
+first(word) = {a..z, A..Z, $}
+first(word') = {a..z, A..Z}
+first(S) = {a..z, A..Z}
+
+follow(letter) = {a..z, A..Z}
+follow(S) = {#}
+follow(word) = {#}
+follow(word') = {#}
