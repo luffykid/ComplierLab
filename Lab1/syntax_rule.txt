@@ -1,0 +1,14 @@
+expr ::= expr + item | expr - item| item
+item ::= item * factor | item / factor | factor
+factor ::= (expr) | digit
+digit ::= 0|1|2|...|9
+
+消除左递归
+
+expr ::= item expr'
+expr' ::= + item expr' | - item expr' | $
+item ::= factor item'
+item' ::= * factor item' | / factor item' | $
+factor ::= (expr) | digit
+digit ::= 0|1|2|...|9
+
